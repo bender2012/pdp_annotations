@@ -8,6 +8,7 @@ import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.TypeElement;
+import javax.tools.Diagnostic.Kind;
 
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
 @SupportedAnnotationTypes({ "com.epam.apt_example.annotations.MyAnnotation" })
@@ -32,6 +33,7 @@ public class AnnotationProcessor extends AbstractProcessor {
 //				//checkMethodSignature((ExecutableElement) element);
 //				System.out.println("Processing");
 //			}
+			processingEnv.getMessager().printMessage(Kind.NOTE, "processing");
 		}
 
 		return false;
