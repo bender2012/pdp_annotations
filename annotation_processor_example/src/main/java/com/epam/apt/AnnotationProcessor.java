@@ -11,36 +11,37 @@ import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic.Kind;
 
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
-@SupportedAnnotationTypes({ "com.epam.apt_example.annotations.MyAnnotation" })
+@SupportedAnnotationTypes({ "com.epam.pdp.annotation.MyAnnotation" })
 public class AnnotationProcessor extends AbstractProcessor {
 
 	public AnnotationProcessor() {
-		
+
 	}
 
 	@Override
-	public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
-		System.out.println("Start processing");
+	public boolean process(Set<? extends TypeElement> annotations,
+			RoundEnvironment roundEnv) {
+		processingEnv.getMessager().printMessage(Kind.ERROR,
+				"ERROR START: >>>>>>>>>>>>>>>>>>>>processing");
 		for (TypeElement typeElement : annotations) {
-			String annotatedElement = roundEnv.getElementsAnnotatedWith(typeElement).toString();
+			String annotatedElement = roundEnv.getElementsAnnotatedWith(
+					typeElement).toString();
 
-			System.out.println("Annotated element" + annotatedElement);
-			
-//			Set<? extends Element> elements = roundEnv.getElementsAnnotatedWith(typeElement);
-//http://deors.wordpress.com/2011/10/08/annotation-processors/
-//			for (Element element : elements) {
-//				//checkElementType(element);
-//				//checkMethodSignature((ExecutableElement) element);
-//				System.out.println("Processing");
-//			}
-			processingEnv.getMessager().printMessage(Kind.NOTE, "processing");
+			// Set<? extends Element> elements =
+			// roundEnv.getElementsAnnotatedWith(typeElement);
+			// http://deors.wordpress.com/2011/10/08/annotation-processors/
+			// for (Element element : elements) {
+			// //checkElementType(element);
+			// //checkMethodSignature((ExecutableElement) element);
+			// System.out.println("Processing");
+			// }
+			processingEnv.getMessager().printMessage(
+					Kind.NOTE,
+					"NOTE INSIDE: >>>>>>>>>>>>>>>>>>>>processing "
+							+ annotatedElement);
 		}
 
-		return false;
+		return true;
 	}
-
-
-
-
 
 }
