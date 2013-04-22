@@ -1,6 +1,6 @@
-package com.epam;
+package com.epam.pdp.annotcons.app;
 
-import com.epam.app.Sample;
+import com.epam.pdp.annotcons.Sample;
 
 public class App {
 	public static void main(String[] args) {

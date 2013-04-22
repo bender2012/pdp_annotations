@@ -1,4 +1,4 @@
-package com.epam.annotations;
+package com.epam.pdp.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

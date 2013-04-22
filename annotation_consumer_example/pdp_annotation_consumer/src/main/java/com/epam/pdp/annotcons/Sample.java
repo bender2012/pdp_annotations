@@ -1,6 +1,6 @@
-package com.epam.app;
+package com.epam.pdp.annotcons;
 
-import com.epam.annotations.MyAnnotation;
+import com.epam.pdp.annotation.MyAnnotation;
 
 @MyAnnotation
 public class Sample {
