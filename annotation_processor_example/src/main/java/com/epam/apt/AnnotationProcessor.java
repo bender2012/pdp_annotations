@@ -14,34 +14,21 @@ import javax.tools.Diagnostic.Kind;
 @SupportedAnnotationTypes({ "com.epam.pdp.annotation.MyAnnotation" })
 public class AnnotationProcessor extends AbstractProcessor {
 
-	public AnnotationProcessor() {
-
-	}
+	private static final CharSequence FOUND_ANNOTATION = "   >>>> Found annotation: MyAnnotation.";
+	private static final CharSequence ANNOTATED_ELEMENT = "   >>>> Annotated element: ";
 
 	@Override
 	public boolean process(Set<? extends TypeElement> annotations,
 			RoundEnvironment roundEnv) {
-		processingEnv.getMessager().printMessage(Kind.ERROR,
-				"ERROR START: >>>>>>>>>>>>>>>>>>>>processing");
+		boolean returnValue = true;
+		processingEnv.getMessager().printMessage(Kind.ERROR, FOUND_ANNOTATION);
 		for (TypeElement typeElement : annotations) {
 			String annotatedElement = roundEnv.getElementsAnnotatedWith(
 					typeElement).toString();
-
-			// Set<? extends Element> elements =
-			// roundEnv.getElementsAnnotatedWith(typeElement);
-			// http://deors.wordpress.com/2011/10/08/annotation-processors/
-			// for (Element element : elements) {
-			// //checkElementType(element);
-			// //checkMethodSignature((ExecutableElement) element);
-			// System.out.println("Processing");
-			// }
-			processingEnv.getMessager().printMessage(
-					Kind.NOTE,
-					"NOTE INSIDE: >>>>>>>>>>>>>>>>>>>>processing "
-							+ annotatedElement);
+			processingEnv.getMessager().printMessage(Kind.ERROR,
+					ANNOTATED_ELEMENT + annotatedElement);
 		}
-
-		return true;
+		return returnValue;
 	}
 
 }

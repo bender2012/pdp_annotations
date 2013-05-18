@@ -5,8 +5,9 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Retention(RetentionPolicy.RUNTIME)
-@Target(value = { ElementType.METHOD, ElementType.TYPE, ElementType.LOCAL_VARIABLE, ElementType.FIELD })
+@Retention(RetentionPolicy.CLASS)
+@Target(value = { ElementType.METHOD, ElementType.TYPE,
+		ElementType.LOCAL_VARIABLE, ElementType.FIELD, ElementType.PACKAGE })
 public @interface MyAnnotation {
 
 }

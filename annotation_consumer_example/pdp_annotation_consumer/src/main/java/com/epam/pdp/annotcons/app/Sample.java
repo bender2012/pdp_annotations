@@ -2,17 +2,15 @@ package com.epam.pdp.annotcons.app;
 
 import com.epam.pdp.annotation.MyAnnotation;
 
+@MyAnnotation
 public class Sample {
-		
-	void sayHello(){
-		
-		@MyAnnotation 
-		String s = "Hello";
-		
-		class A {
-			
-		}
-		
+
+	@MyAnnotation
+	private String helloFiled = "Hello";
+
+	void sayHello() {
+		@MyAnnotation
+		String localVariable = "";
 	}
 
 }
